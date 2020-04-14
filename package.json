@@ -1,0 +1,17 @@
+{
+  "name": "covidwebsite",
+  "version": "1.0.0",
+  "description": "Website for corona virus update using covid19 API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Mustafiz Kaifee",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+.nav1{
+    padding: 5px 30px;
+}
+.nav1 ul{
+    text-transform: capitalize;
+}
+
+.main_header{
+    height: 450px;
+    width: 100%;
+}
+
+.corona-update{
+    margin: 0 0 30px 0;
+}
+.corona-update h3{
+    color: #ff7675;
+}
+.corona-update h1{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.sub_section{
+    background-color: #fbfafd;
+}
+
+.footer_style{
+    background-color: black !important ;
+    width: 100%;
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0 !important;
+    padding: 15px 0 ;
+}
+
+
+#mybtn{
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #00a8ff;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#mybtn:hover{
+    background: #606060;
+}
