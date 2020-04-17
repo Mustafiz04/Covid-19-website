@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/worldcovid', (req,res) => {
+router.get('/countrywise', (req,res) => {
+    res.locals.title = "World's Covid-19 Report";
     res.render('pages/worldcovid');
 })
 

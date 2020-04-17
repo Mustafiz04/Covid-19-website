@@ -4,64 +4,74 @@
     <div class="row w-100 h-100">
         <div class="col-lg-5 col-md-5 col-12 order-lg-1 order-2">
             <div class="lefside w-100 h-100 d-flex justify-content-center align-items-center">
-                <img src="/images/coronavirus.png" alt="" width="400" height="300">
+                <img src="/images/coronavirus.png" alt="" width="500" height="300">
             </div>
         </div>
 
         <div class="col-lg-7 col-md-7 col-12 order-lg-2 order-1">
-            <div class="rightside w-100 h-100 d-flex justify-content-center align-items-center">
-                <h1>Let's stay safe & fight together against corona virus</h1>
+            <div class=" fight">
+                <h1>Stay Home, Stay Safe & fight together against corona virus</h1>
             </div>
         </div>
     </div>
 </div>
 
 <div class="corona-update">
-    <div class="mb-4">
+    <div class="mb-3">
         <h3 class="text-uppercase text-center">Covid-19 Updates WorldWide</h3>
     </div>
-    <div class="d-flex justify-content-around align-items-center">
-        <div>
-            <h1 class="count" id="totalcases"></h1>
-            <p>Total cases worldwide</p>
+    <div class="col-12 col-lg-12 show">
+        <div class="data-show">
+            <div>
+                <h1 class="count" id="totalcases"></h1>
+                <p>Total cases worldwide</p>
+            </div>
+            <div>
+                <h1 class="count" id="totalrecovered"></h1>
+                <p>Total recovered worldwide</p>
+            </div>
         </div>
-        <div>
-            <h1 class="count" id="totalrecovered"></h1>
-            <p>Total recovered worldwide</p>
-        </div>
-        <div>
-            <h1 class="count" id="totaldeath"></h1>
-            <p>Total death worldwide</p>
-        </div>
-        <div>
-            <h1 class="count" id="newconfirmed"></h1>
-            <p>New confirmed cased today</p>
+        <div class="data-show">
+            <div>
+                <h1 class="count" id="totaldeath"></h1>
+                <p>Total death worldwide</p>
+            </div>
+            <div>
+                <h1 class="count" id="newconfirmed"></h1>
+                <p>New confirmed cased today</p>
+            </div>
         </div>
     </div>
+    
 </div>
 
 <div class="corona-update">
-    <div class="mb-4">
+    <div class="mb-3">
         <h3 class="text-uppercase text-center">Covid-19 Updates India</h3>
     </div>
-    <div class="d-flex justify-content-around align-items-center">
-        <div>
-            <h1 class="count" id="totalcasesindia"></h1>
-            <p>Total confiremed cases</p>
+    <div class="col-12 col-lg-12 show">
+        <div class="data-show">
+            <div>
+                <h1 class="count" id="totalcasesindia"></h1>
+                <p>Total confiremed cases</p>
+            </div>
+            <div>
+                <h1 class="count" id="totalactiveindia"></h1>
+                <p>Total active cases</p>
+            </div>
         </div>
-        <div>
-            <h1 class="count" id="totalactiveindia"></h1>
-            <p>Total active cases</p>
-        </div>
-        <div>
-            <h1 class="count" id="totalrecoveredindia"></h1>
-            <p>Total recovered</p>
-        </div>
-        <div>
-            <h1 class="count" id="totaldeathindia"></h1>
-            <p>Total death</p>
+        <div class="data-show">
+            <div>
+                <h1 class="count" id="totalrecoveredindia"></h1>
+                <p>Total recovered</p>
+            </div>
+            <div>
+                <h1 class="count" id="totaldeathindia"></h1>
+                <p>Total death</p>
+            </div>
         </div>
     </div>
+    
 </div>
 
 
@@ -70,8 +80,8 @@
         <h1>About Covid-19</h1>
     </div>
 
-    <div class="row pt-5 ">
-        <div class="col-lg-5 col-md-6 col-12 ml-5 text-center ">
+    <div class="row pt-4 ">
+        <div class="col-lg-5 col-md-6 col-12 corona-pic">
             <img src="/images/covid.png" class="img-fluid" alt="" width="220" height="220">
         </div>
 
@@ -245,7 +255,7 @@
 </div>
 
 
-<div class="container-fluid pt-5 pb-5" id="about" >
+<!-- <div class="container-fluid pt-5 pb-5" id="about" >
     <div class="section_header text-center mb-5 mt-4">
         <h1>Coronavirus prevention</h1>
     </div>
@@ -272,10 +282,9 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
-<script src="/js/home.js"></script>
 
 <%- include('../partial/footer') %>

@@ -42,6 +42,9 @@ html{
     padding: 15px 0 ;
 }
 
+.fd:hover{
+    text-decoration: none;
+}
 
 #mybtn{
     display: none;
@@ -60,4 +63,68 @@ html{
 
 #mybtn:hover{
     background: #606060;
+}
+
+
+.data-table{
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.show{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.data-show{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 150px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.fight{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.corona-pic{
+    text-align: center;
+}
+
+.donate{
+    width: 100%;
+    height: 72.7vh;
+    position: relative;
+}
+.donate-row{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.error h2{
+    font-size: 3.5rem;
+    color: rgba(0,0,0,0.5);
+}
+
+@media (max-width : 830px){
+    .corona-update .show{
+        flex-direction: column;
+    }
+    .corona-update .show .data-show{
+        grid-gap: 0px;
+    }
+
+    .main-header .row .order-1 .fight{
+        text-align: center;
+    }
 }
