@@ -72,17 +72,10 @@ html{
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.show{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-content: center;
-}
 
 .data-show{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-gap: 150px;
+    grid-template-columns: repeat(4,1fr);
     justify-content: center;
     align-content: center;
     text-align: center;
@@ -117,11 +110,8 @@ html{
 }
 
 @media (max-width : 830px){
-    .corona-update .show{
-        flex-direction: column;
-    }
-    .corona-update .show .data-show{
-        grid-gap: 0px;
+    .corona-update .data-show{
+        grid-template-columns: repeat(2,1fr);
     }
 
     .main-header .row .order-1 .fight{
