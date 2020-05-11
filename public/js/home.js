@@ -39,11 +39,7 @@ function get(){
         totalactiveindia.innerHTML = indiadata['statewise'][0].active;
         totaldeathindia.innerHTML = indiadata['statewise'][0].deaths;
     })
-}
 
-
-
-var preloader = document.getElementById('loader');
-function loader(){
+    var preloader = document.getElementById('loader');
     preloader.style.display = 'none';
 }
