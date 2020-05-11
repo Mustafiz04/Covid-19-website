@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <title><%= title %></title>
 </head>
-<body onload="get()">
+<body onload="get(); loader()">
+
+	<div id="loader"></div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
         <a class="navbar-brand pl-5" href="/">Covid19</a>

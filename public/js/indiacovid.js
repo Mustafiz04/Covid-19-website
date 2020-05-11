@@ -43,5 +43,8 @@ function get(){
             r++;
         }
     })
+
+    var preloader = document.getElementById('loader');
+    preloader.style.display = 'none';
 }
 

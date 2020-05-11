@@ -40,3 +40,10 @@ function get(){
         totaldeathindia.innerHTML = indiadata['statewise'][0].deaths;
     })
 }
+
+
+
+var preloader = document.getElementById('loader');
+function loader(){
+    preloader.style.display = 'none';
+}
