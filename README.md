@@ -12,7 +12,7 @@ You can visit our site using this [link](https://covid-19-website.herokuapp.com/
  - [India](https://api.covid19india.org/data.json)
  - [World](https://api.covid19api.com/summary)
 
-### HTML, CSS, BOOSTRAP, JAVASCRIPT is used for frontend program
+### HTML, CSS, BOOTSTRAP, JAVASCRIPT is used for frontend program
 ### NodeJS is used for backend program
 ### It is hosted free on Heroku.
 _ _ _
