@@ -1,5 +1,5 @@
 # Overview
-[Covid 19](https://covid-19-website.herokuapp.com/) is website to keep track live COVID-19 data using an APIs for both the India and the World.
+[Covid 19](https://covid-19-website.herokuapp.com/) is a website to keep track of live COVID-19 data using APIs for both India and the World.
 
 You can visit our site using this [link](https://covid-19-website.herokuapp.com/)
 
