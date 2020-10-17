@@ -1,55 +1,75 @@
-let api = 'https://api.covid19api.com/summary';
+var tableViewModel = function(){
+    return {
+        // data variables
+        api: 'https://api.covid19api.com/summary',
+        data: [],
+        countries: [],
+        sortAsc: true,
+        sortField: 'Country',
+        // initializes the retrieved data
+        getData() {
+            fetch(this.api)
+            .then(response => {
+                let data = response.json()
+                return data
+            })
+            .then(data => {
+                // console.log(data)
+                this.data = data
+                this.countries = data.Countries
 
-function get(){
-    fetch(api)
-    .then(function(response){
-        let data = response.json();
-        return data
-    })
+                // remove loader
+                var preloader = document.getElementById('loader')
+                preloader.style.display = 'none'
+            })
+        },
+        // sorts the row when clicking on header
+        sortRow(rowField) {
+            // change field for ascending sort if same field
+            if(this.sortField === rowField) this.sortAsc = !this.sortAsc
 
-    .then(function(data){
-        var tabval = document.getElementById('tbval');
-        for(var i = 1; i<(data['Countries'].length); i++){
-            var x = tabval.insertRow();
-            x.insertCell(0);
-            tabval.rows[i].cells[0].innerHTML = data['Countries'][i-1].Country;
-            // tabval.rows[i].cells[0].style.background = '#337c7c';
-            tabval.rows[i].cells[0].style.color = '#000';
+            var sorted
+            if(rowField === 'Country'){
+                sorted = this.countries.sort((a, b) => {
+                    var aName = a.Country.toUpperCase()
+                    var bName = b.Country.toUpperCase()
 
-            x.insertCell(1);
-            tabval.rows[i].cells[1].innerHTML = data['Countries'][i-1].TotalConfirmed;
-            // tabval.rows[i].cells[1].style.background = '#4c3d76';
-            tabval.rows[i].cells[1].style.color = '#000';
+                    // direction of sort changes when clicking on the same field
+                    if(this.sortAsc){
+                        if(aName < bName) return -1
+                        if(aName > bName) return 1
+                        
+                    } else {
+                        if(aName > bName) return -1
+                        if(aName < bName) return 1
+                    }
 
-            x.insertCell(2);
-            tabval.rows[i].cells[2].innerHTML = data['Countries'][i-1].TotalRecovered;
-            // tabval.rows[i].cells[2].style.background = '#322e40';
-            tabval.rows[i].cells[2].style.color = '#000';
+                    return 0
 
-            x.insertCell(3);
-            tabval.rows[i].cells[3].innerHTML = data['Countries'][i-1].TotalDeaths;
-            // tabval.rows[i].cells[3].style.background = '#af4763';
-            tabval.rows[i].cells[3].style.color = '#000';
+                })
+                
+            } else {
+                sorted = this.countries.sort((a, b) => {
+                    // direction of sort changes when clicking on the same field
+                    if(this.sortAsc){
+                        if(a[rowField] < b[rowField]) return -1
+                        if(a[rowField] > b[rowField]) return 1
+                    } else {
+                        if(a[rowField] > b[rowField]) return -1
+                        if(a[rowField] < b[rowField]) return 1
+                    }
+                    return 0
+                })
+            }
 
-            x.insertCell(4);
-            tabval.rows[i].cells[4].innerHTML = data['Countries'][i-1].NewConfirmed;
-            // tabval.rows[i].cells[4].style.background = '#8e2f63';
-            tabval.rows[i].cells[4].style.color = '#000';
-
-            x.insertCell(5);
-            tabval.rows[i].cells[5].innerHTML = data['Countries'][i-1].NewRecovered;
-            // tabval.rows[i].cells[5].style.background = '#02387a';
-            tabval.rows[i].cells[5].style.color = '#000';
-
-            x.insertCell(6);
-            tabval.rows[i].cells[6].innerHTML = data['Countries'][i-1].NewDeaths;
-            // tabval.rows[i].cells[6].style.background = '#538196';
-            tabval.rows[i].cells[6].style.color = '#000';
-
+            // set new current sort field
+            this.sortField = rowField
+            // set new data
+            this.countries = sorted
         }
-    })
-
-    var preloader = document.getElementById('loader');
-    preloader.style.display = 'none';
+    }
 }
 
+function get(){
+    // nothing needed
+}
