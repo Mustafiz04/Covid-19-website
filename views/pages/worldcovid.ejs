@@ -6,8 +6,20 @@
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="table-responsive data-table" x-data="tableViewModel()" x-init="getData()">
+<div class="container-fluid" x-data="tableViewModel()" x-init="getData()">
+    <div class="search-input form-group w-25 mx-auto">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Find a Country</div>
+            </div>
+            <input class="form-control" type="text" placeholder="Type Country Name" x-model="searchInput" x-on:input="updateSearch">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" x-on:click="resetSearch">Reset</button>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive data-table">
+        
         <table class="table text-center" id="tbval">
             <thead>
                 <tr>

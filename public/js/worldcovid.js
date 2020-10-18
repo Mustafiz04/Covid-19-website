@@ -4,6 +4,7 @@ var tableViewModel = function(){
         api: 'https://api.covid19api.com/summary',
         data: [],
         countries: [],
+        searchInput: '',
         sortAsc: true,
         sortField: 'Country',
         // initializes the retrieved data
@@ -24,9 +25,11 @@ var tableViewModel = function(){
             })
         },
         // sorts the row when clicking on header
-        sortRow(rowField) {
+        // - rowField is the field to change to
+        // - noSortChange is there is no sorting change like on reset
+        sortRow(rowField, noSortChange) {
             // change field for ascending sort if same field
-            if(this.sortField === rowField) this.sortAsc = !this.sortAsc
+            if(this.sortField === rowField && !noSortChange) this.sortAsc = !this.sortAsc
 
             var sorted
             if(rowField === 'Country'){
@@ -66,6 +69,22 @@ var tableViewModel = function(){
             this.sortField = rowField
             // set new data
             this.countries = sorted
+        },
+        // updates the search with the input, called on input change
+        updateSearch(event) {
+            if (this.searchInput) {
+                var pattern = new RegExp(this.searchInput.toUpperCase(), 'g')
+                var filtered
+                filtered = this.data.Countries.slice().filter(row => pattern.test(row.Country.toUpperCase()))
+
+                this.countries = filtered
+            }
+        },
+        // resets the search to whatever is currently set
+        resetSearch(event) {
+            this.countries = this.data.Countries
+            this.sortRow(this.sortField, true)
+            this.searchInput = ''
         }
     }
 }
