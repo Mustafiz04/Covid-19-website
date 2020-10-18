@@ -12,7 +12,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text">Find a Country</div>
             </div>
-            <input class="form-control" type="text" placeholder="Type Country Name" x-model="searchInput" x-on:input="updateSearch">
+            <input class="form-control" type="text" placeholder="Type Country Name" x-model="searchInput" x-on:keyup="updateSearch">
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" x-on:click="resetSearch">Reset</button>
             </div>

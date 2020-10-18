@@ -17,7 +17,7 @@ var tableViewModel = function(){
             .then(data => {
                 // console.log(data)
                 this.data = data
-                this.countries = data.Countries
+                this.countries = data.Countries.slice()
 
                 // remove loader
                 var preloader = document.getElementById('loader')
@@ -72,17 +72,17 @@ var tableViewModel = function(){
         },
         // updates the search with the input, called on input change
         updateSearch(event) {
-            if (this.searchInput) {
-                var pattern = new RegExp(this.searchInput.toUpperCase(), 'g')
-                var filtered
-                filtered = this.data.Countries.slice().filter(row => pattern.test(row.Country.toUpperCase()))
+            console.log(event);
+            var pattern = new RegExp(this.searchInput.toUpperCase(), 'g')
+            var filtered
+            filtered = this.data.Countries.slice().filter(row => pattern.test(row.Country.toUpperCase()))
 
-                this.countries = filtered
-            }
+            this.countries = filtered
+            this.sortRow(this.sortField, true)
         },
         // resets the search to whatever is currently set
         resetSearch(event) {
-            this.countries = this.data.Countries
+            this.countries = this.data.Countries.slice()
             this.sortRow(this.sortField, true)
             this.searchInput = ''
         }
