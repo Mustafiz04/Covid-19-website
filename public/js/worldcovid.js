@@ -72,7 +72,6 @@ var tableViewModel = function(){
         },
         // updates the search with the input, called on input change
         updateSearch(event) {
-            console.log(event);
             var pattern = new RegExp(this.searchInput.toUpperCase(), 'g')
             var filtered
             filtered = this.data.Countries.slice().filter(row => pattern.test(row.Country.toUpperCase()))
