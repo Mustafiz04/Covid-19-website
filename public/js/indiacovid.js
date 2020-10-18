@@ -48,3 +48,5 @@ function get(){
     preloader.style.display = 'none';
 }
 
+// page load
+get()
