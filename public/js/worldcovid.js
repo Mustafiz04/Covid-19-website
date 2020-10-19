@@ -87,7 +87,3 @@ var tableViewModel = function(){
         }
     }
 }
-
-function get(){
-    // nothing needed
-}

@@ -73,7 +73,6 @@ var parseDateFormat = function(dateString) {
     return Date.parse('2020-' + month + '-' + day)
 }
 
-// main table view model
 var tableViewModel = function(){
     return {
         // data variables
@@ -167,8 +166,4 @@ var tableViewModel = function(){
             this.searchInput = ''
         }
     }
-}
-
-function get(){
-    // nothing needed
 }
