@@ -6,21 +6,73 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" x-data="tableViewModel()" x-init="getData()">
+    <div class="search-input form-group w-50 mx-auto">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">By Date (all in 2020)</div>
+            </div>
+            <input class="form-control" type="text" placeholder="Format [Day Month] or [Month] ex. 15 March or July" x-model="searchInput" x-on:keyup="updateSearch">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" x-on:click="resetSearch">Reset</button>
+            </div>
+        </div>
+    </div>
     <div class="table-responsive data-table">
         <table class="table text-center" id="tbval">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Total Confirmed</th>
-                    <th>Total Recovered</th>
-                    <th>Total Deaths</th>
-                    <th>Daily Confirmed</th>
-                    <th>Daily Recovered</th>
-                    <th>Daily Death</th>
+                    <th class="sort-header" x-on:click="sortRow('date')">
+                        Date 
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'date'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'date'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('totalconfirmed')">
+                        Total Confirmed 
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'totalconfirmed'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'totalconfirmed'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('totalrecovered')">
+                        Total Recovered
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'totalrecovered'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'totalrecovered'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('totaldeceased')">
+                        Total Deaths
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'totaldeceased'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'totaldeceased'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('dailyconfirmed')">
+                        Daily Confirmed
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'dailyconfirmed'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'dailyconfirmed'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('dailyrecovered')">
+                        Daily Recovered
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'dailyrecovered'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'dailyrecovered'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('dailydeceased')">
+                        Daily Deceased
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'dailydeceased'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'dailydeceased'"></i>
+                    </th>
                 </tr>
             </thead>
-          </table>
+            <tbody>
+                <template x-for="(row, index) in cases" :key="row.date">
+                    <tr>
+                        <td><span x-text="row.date"></span></td>
+                        <td><span x-text="row.totalconfirmed"></span></td>
+                        <td><span x-text="row.totalrecovered"></span></td>
+                        <td><span x-text="row.totaldeceased"></span></td>
+                        <td><span x-text="row.dailyconfirmed"></span></td>
+                        <td><span x-text="row.dailyrecovered"></span></td>
+                        <td><span x-text="row.dailydeceased"></span></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
     </div> 
 </div>
 

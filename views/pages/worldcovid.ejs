@@ -6,21 +6,74 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" x-data="tableViewModel()" x-init="getData()">
+    <div class="search-input form-group w-25 mx-auto">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Find a Country</div>
+            </div>
+            <input class="form-control" type="text" placeholder="Type Country Name" x-model="searchInput" x-on:keyup="updateSearch">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" x-on:click="resetSearch">Reset</button>
+            </div>
+        </div>
+    </div>
     <div class="table-responsive data-table">
+        
         <table class="table text-center" id="tbval">
             <thead>
                 <tr>
-                    <th>Country</th>
-                    <th>Total Confirmed</th>
-                    <th>Total Recovered</th>
-                    <th>Total Deaths</th>
-                    <th>New Confirmed</th>
-                    <th>New Recovered</th>
-                    <th>New Death</th>
+                    <th class="sort-header" x-on:click="sortRow('Country')">
+                        Country 
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'Country'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'Country'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('TotalConfirmed')">
+                        Total Confirmed 
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'TotalConfirmed'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'TotalConfirmed'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('TotalRecovered')">
+                        Total Recovered
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'TotalRecovered'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'TotalRecovered'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('TotalDeaths')">
+                        Total Deaths
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'TotalDeaths'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'TotalDeaths'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('NewConfirmed')">
+                        New Confirmed
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'NewConfirmed'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'NewConfirmed'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('NewRecovered')">
+                        New Recovered
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'NewRecovered'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'NewRecovered'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('NewDeaths')">
+                        New Death
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'NewDeaths'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'NewDeaths'"></i>
+                    </th>
                 </tr>
             </thead>
-          </table>
+            <tbody>
+                <template x-for="(row, index) in countries" :key="row.Slug">
+                    <tr>
+                        <td><span x-text="row.Country"></span></td>
+                        <td><span x-text="row.TotalConfirmed"></span></td>
+                        <td><span x-text="row.TotalRecovered"></span></td>
+                        <td><span x-text="row.TotalDeaths"></span></td>
+                        <td><span x-text="row.NewConfirmed"></span></td>
+                        <td><span x-text="row.NewRecovered"></span></td>
+                        <td><span x-text="row.NewDeaths"></span></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
     </div> 
 </div>
 

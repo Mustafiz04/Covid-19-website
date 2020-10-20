@@ -6,18 +6,60 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" x-data="tableViewModel()" x-init="getData()">
+    <div class="search-input form-group w-25 mx-auto">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Find a State</div>
+            </div>
+            <input class="form-control" type="text" placeholder="Type State Name" x-model="searchInput" x-on:keyup="updateSearch">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" x-on:click="resetSearch">Reset</button>
+            </div>
+        </div>
+    </div>
     <div class="table-responsive data-table">
         <table class="table text-center" id="tbval">
             <thead>
                 <tr>
-                    <th>State</th>
-                    <th>Confirmed</th>
-                    <th>Active</th>
-                    <th>Recovered</th>
-                    <th>Total Deaths</th>
+                    <th class="sort-header" x-on:click="sortRow('state')">
+                        State 
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'state'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'state'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('confirmed')">
+                        Confirmed 
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'confirmed'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'confirmed'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('active')">
+                        Active
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'active'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'active'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('recovered')">
+                        Recovered
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'recovered'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'recovered'"></i>
+                    </th>
+                    <th class="sort-header" x-on:click="sortRow('deaths')">
+                        Total Deaths
+                        <i class="fa fa-sort-up" x-show="sortAsc && sortField === 'deaths'"></i>
+                        <i class="fa fa-sort-down" x-show="!sortAsc && sortField === 'deaths'"></i>
+                    </th>
                 </tr>
             </thead>
+            <tbody>
+                <template x-for="(row, index) in states" :key="row.statecode">
+                    <tr>
+                        <td><span x-text="row.state"></span></td>
+                        <td><span x-text="row.confirmed"></span></td>
+                        <td><span x-text="row.active"></span></td>
+                        <td><span x-text="row.recovered"></span></td>
+                        <td><span x-text="row.deaths"></span></td>
+                    </tr>
+                </template>
+            </tbody>
           </table>
     </div> 
 </div>
